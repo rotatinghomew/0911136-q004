@@ -1,0 +1,51 @@
+{
+  "rain": {
+    "keys": [
+      "record_id"
+    ],
+    "columns": [
+      "record_id",
+      "station_id",
+      "at",
+      "rain_mm",
+      "interval_minutes",
+      "process_id"
+    ]
+  },
+  "levels": {
+    "keys": [
+      "record_id"
+    ],
+    "columns": [
+      "record_id",
+      "gauge_id",
+      "at",
+      "level_m",
+      "datum_version",
+      "process_id"
+    ]
+  },
+  "network": {
+    "keys": [
+      "rain_station",
+      "gauge_id"
+    ],
+    "columns": [
+      "rain_station",
+      "gauge_id",
+      "catchment",
+      "upstream"
+    ]
+  },
+  "datums": {
+    "keys": [
+      "gauge_id",
+      "datum_version"
+    ],
+    "columns": [
+      "gauge_id",
+      "datum_version",
+      "offset_m"
+    ]
+  }
+}
