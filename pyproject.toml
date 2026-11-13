@@ -2,3 +2,13 @@
 name = "warning-policy-analysis"
 version = "0.1.0"
 requires-python = ">=3.11"
+
+[build-system]
+requires = ["setuptools==75.3.0", "wheel==0.45.1"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["warning_policy"]
+
+[tool.setuptools.package-data]
+warning_policy = ["schema.json"]
