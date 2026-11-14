@@ -16,6 +16,16 @@ python3 -m warning_policy.runner --output /tmp/warning_policy-summary.json
 
 当前能力是源码 `analysis.py` 定义的摘要，不会自动给出其他统计推断。输出中的 scope 说明边界，sources 记录资料依据。
 
+## 雨量—水位时滞关联研究
+
+独立研究，不改变上面的默认摘要。它会按上游雨量站组成候选站组，逐水位站搜索时滞，并对反复搜索做零分布校正，最后在未参与选型的完整过程上复核：
+
+```sh
+python3 -m warning_policy.runner --study lag-association --output /tmp/lag-study.json
+```
+
+可调参数：`--lag-bin-minutes`（时滞档宽，同时是分辨率上限）、`--lag-permutations`（零分布重抽样次数）、`--lag-selection-share`（按过程顺序用于选型的比例）。输出含每个水位站的候选站组、有效时滞范围、搜索校正 p 值、站间相关与留出过程复核。结果是供巡查人员判断是否值得采用的统计证据，不宣称因果或洪水预测精度；采样不足或换基准的区间不会被插成精确配对。
+
 ## 分开运行供数与应用
 
 ```sh
